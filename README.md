@@ -207,12 +207,37 @@ published Power BI Service report.
 
 Repository
 
-The repository contains the README, the PostgreSQL SQL script in the sql
-folder, and the Power BI dashboard and model screenshots in the assets
-folder.
+The repository contains the README, the PostgreSQL SQL script in the sql folder, and the Power BI dashboard and model screenshots in the assets folder.
 
-The main SQL file can be opened here:
-Nivora_Rev_Perf_Analysis.sql.
+[View the SQL analysis and database script](sql/Nivora_Rev_Perf_Analysis.sql)
+
+Revenue, Store & Category Performance
+
+The first dashboard page provides an overview of commercial performance. It covers revenue, completed orders, AOV, revenue concentration by store and category, monthly revenue movement, category sales, store cancellation rates and average delivery delays.
+
+The dashboard reports approximately ₹15.7M in completed-order revenue, with Staples contributing about 55% of revenue and the largest store contributing about 26%.
+
+![Revenue, Store & Category Performance](assets/Revenue%2CStore%26Category%20Performance_Nivora.png)
+
+Customer, Retention & Operations
+
+The second dashboard page focuses on customer behaviour, retention and operational exposure. It covers repeat revenue share, customer order depth, first-order promotion usage, repeat rates by first-order promotion status, repeat rates by first-order delivery delay, cohort retention, promotion revenue contribution and store-level customer metrics.
+
+The dashboard reports a repeat customer rate of approximately 89.9%, with repeat customers contributing about 73.3% of total revenue. It also shows a difference in repeat rates across first-order delivery-delay groups, with the 0–10 minute group at 94.5% compared with 68.6% for customers whose first order was delayed by more than 21 minutes.
+
+The promotion comparison shows a smaller difference. Customers whose first order used a promotion have a repeat rate of 90.3%, compared with 89.0% for customers whose first order did not use a promotion.
+
+![Customer, Retention & Operations](assets/Customer%2C%20Retention%20%26Operations_Nivora.png)
+
+Power BI Data Model
+
+The Power BI model connects the transactional order data with customer, store, product, delivery and promotion information. The orders table acts as the central transaction table, with relationships to customers through customer_id, dark_stores through dark_store_id, deliveries through order_id and order_items through order_id.
+
+The order_items table is connected to products through product_id, while promotions are connected to orders through the order_promotions mapping table. This allows the report to analyse order performance alongside customer characteristics, store performance, product categories, delivery outcomes and promotion usage.
+
+The model also includes an Order Depth Stage table used for the customer order-depth analysis in the dashboard.
+
+![Power BI Data Model](assets/Data%20Model_Nivora.png)
 
 Skills Demonstrated
 
